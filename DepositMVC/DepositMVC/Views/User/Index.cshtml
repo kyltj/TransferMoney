@@ -1,0 +1,45 @@
+﻿<!-- Form itself -->
+@using (Html.BeginForm("Index", "User"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <h1>Покупка Депозита</h1>
+
+    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" onblur='if(this.value=="") this.placeholder="Сума Инвестирования"' onfocus='if(this.value=="Сума") this.value=""' placeholder="Сума Инвестирования" name="price" required data-validation-required-message="Пожалуйста укажите суму которую вы инвестируете" />
+
+    <button type="submit" class="btn btn-lg btn-3d pull-right">Инвестировать</button><br />
+
+}
+
+
+
+
+
+
+
+
+@*  @Ajax.ActionLink("Купить", "BuyDepositPost", new { item.Id  }, new AjaxOptions {  HttpMethod = "Post", UpdateTargetId = "deposit" })*@
+
+
+    <div id="deposits">@{Html.RenderAction("BuyDepositUserGet", "User");}</div> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
+<SCRIPT language=Javascript>
+       <!--
+       function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : evt.keyCode;
+          if (charCode != 46 && charCode > 31
+            && (charCode < 48 || charCode > 57))
+             return false;
+
+          return true;
+       }
+       //-->
+</SCRIPT>

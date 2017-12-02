@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DepositMVC.Models.UserDeposit>
+
+
+@Html.ValidationSummary(false)
+
+<h2>Ваши Депозиты</h2>
+<table class="table">
+    <tr>
+        <th>
+            Имя Депозита
+        </th>
+
+        <th>
+            Цена Депозита
+        </th>
+       
+        <th>
+            Осталось Дней
+        </th>
+        <th>
+            Уже Начислено
+        </th>
+        <th>
+            Процент на День
+        </th>
+
+        <th>
+            Дата Покупки
+        </th>
+
+        <th>
+            Дата Завешения Депозита
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deposit.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(modelItem => item.Days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccuralYet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deposit.Accrual)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateEnd)
+            </td>
+            
+        </tr>
+    }
+
+</table>
